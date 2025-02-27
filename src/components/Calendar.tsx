@@ -138,6 +138,7 @@ const Calendar: React.FC<CalendarProps> = ({
                 padding: "10px",
                 position: "relative",
                 boxSizing: "border-box",
+                borderRadius: "15px",
               }}
             >
               <div
@@ -145,7 +146,7 @@ const Calendar: React.FC<CalendarProps> = ({
                   position: "absolute",
                   top: "5px",
                   right: "5px",
-                  fontSize: "12px",
+                  fontSize: "0.8rem",
                   color: "#605856",
                 }}
               >

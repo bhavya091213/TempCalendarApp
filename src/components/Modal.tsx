@@ -37,7 +37,6 @@ const Modal: React.FC<ModalProps> = ({ onCreateNew, onUploadCSV }) => {
         bottom: 0,
         background: "rgba(0,0,0,0.5)",
         display: "flex",
-        alignItems: "center",
         justifyContent: "center",
         zIndex: 1000,
       }}
@@ -49,7 +48,6 @@ const Modal: React.FC<ModalProps> = ({ onCreateNew, onUploadCSV }) => {
           borderRadius: "8px",
           width: "300px",
           textAlign: "center",
-          justifyContent: "center",
         }}
       >
         <h2 style={{ color: "#1E1E1E" }}>Welcome</h2>
@@ -64,7 +62,6 @@ const Modal: React.FC<ModalProps> = ({ onCreateNew, onUploadCSV }) => {
             borderRadius: "5px",
             width: "100%",
             textAlign: "center",
-            justifyContent: "center",
           }}
         >
           Create New Calendar
@@ -81,7 +78,7 @@ const Modal: React.FC<ModalProps> = ({ onCreateNew, onUploadCSV }) => {
               border: "none",
               borderRadius: "5px",
               width: "100%",
-              justifyContent: "center",
+              textAlign: "center",
             }}
           >
             Upload CSV
