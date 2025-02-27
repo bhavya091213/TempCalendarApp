@@ -15,10 +15,10 @@ const Calendar: React.FC<CalendarProps> = ({
   setCurrentMonth,
   removeEvent,
 }) => {
-  // Number of days in a given month for 2025
+  // Number of days in the given month for 2025
   const daysInMonth = new Date(2025, currentMonth, 0).getDate();
 
-  // Compute the day of the week for the 1st of the month (0 = Sunday, 1 = Monday, etc.)
+  // Compute the weekday of the 1st of the month (0 = Sunday, 1 = Monday, etc.)
   const firstDayOfWeek = new Date(2025, currentMonth - 1, 1).getDay();
 
   // Array of day numbers for the month
@@ -37,6 +37,9 @@ const Calendar: React.FC<CalendarProps> = ({
   const handleNext = () => {
     if (currentMonth < 12) setCurrentMonth(currentMonth + 1);
   };
+
+  // Calculate a fixed width based on viewport; use it as both width and minimum height.
+  const cellSize = "calc((100vw - 80px) / 7)";
 
   return (
     <div style={{ padding: "20px" }}>
@@ -82,7 +85,7 @@ const Calendar: React.FC<CalendarProps> = ({
         </button>
       </div>
 
-      {/* Days-of-the-Week Headers placed 10px above the first row of boxes */}
+      {/* Days-of-the-Week Header (placed above the grid) */}
       <div
         style={{
           marginBottom: "10px",
@@ -94,7 +97,7 @@ const Calendar: React.FC<CalendarProps> = ({
           <div
             key={dayName}
             style={{
-              width: "calc((100vw - 80px) / 7)",
+              width: cellSize,
               textAlign: "center",
               fontWeight: "bold",
               color: "#605856",
@@ -113,17 +116,17 @@ const Calendar: React.FC<CalendarProps> = ({
           gap: "10px",
         }}
       >
-        {/* Offset placeholders to align day 1 to the correct weekday */}
+        {/* Render empty placeholders for offset */}
         {Array.from({ length: firstDayOfWeek }).map((_, index) => (
           <div
             key={`placeholder-${index}`}
             style={{
-              width: "calc((100vw - 80px) / 7)",
-              height: "calc((100vw - 80px) / 7)",
+              width: cellSize,
+              minHeight: cellSize,
             }}
           />
         ))}
-        {/* Day boxes */}
+        {/* Render day boxes */}
         {days.map((day) => {
           const dayEvents = events.filter(
             (ev) => ev.month === currentMonth && ev.day === day
@@ -132,8 +135,8 @@ const Calendar: React.FC<CalendarProps> = ({
             <div
               key={day}
               style={{
-                width: "calc((100vw - 80px) / 7)",
-                height: "calc((100vw - 80px) / 7)",
+                width: cellSize,
+                minHeight: cellSize,
                 border: "1px solid #D0CCD0",
                 padding: "10px",
                 position: "relative",
@@ -146,7 +149,7 @@ const Calendar: React.FC<CalendarProps> = ({
                   position: "absolute",
                   top: "5px",
                   right: "5px",
-                  fontSize: "0.8rem",
+                  fontSize: "12px",
                   color: "#605856",
                 }}
               >

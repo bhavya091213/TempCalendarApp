@@ -206,12 +206,16 @@ const App: React.FC = () => {
           bottom: "20px",
           left: "20px",
           background: "#1C6E8C",
+          display: "flex",
           color: "white",
           border: "none",
           borderRadius: "50%",
           width: "50px",
           height: "50px",
           fontSize: "24px",
+          textAlign: "center",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         +

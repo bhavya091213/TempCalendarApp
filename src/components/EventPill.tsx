@@ -20,11 +20,21 @@ const EventPill: React.FC<EventPillProps> = ({ event, removeEvent }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        overflow: "hidden",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <span>{event.title}</span>
+      <span
+        style={{
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          flex: 1,
+        }}
+      >
+        {event.title}
+      </span>
       {hovered && (
         <span
           onClick={() => removeEvent(event.id)}
